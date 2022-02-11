@@ -22,7 +22,8 @@ const invoice = [{
     ]
 }]
 
-
+//관객의 규모로 가격 측정
+//별개로 포인트 지급
 function statement(invoice, plays){
     let totalAmount = 0
     let volumeCredits = 0
@@ -33,8 +34,9 @@ function statement(invoice, plays){
         minimumFractionDigits:2
     }).format
     
-    for(let perf of invoice[0].performances){
+    for(let perf of invoice[0].performances){//perf는 배열속 객체
         const play = plays[perf.playID]
+        console.log(`${perf}, ${perf.playID}`)
         let thisAmount = 0
 
         switch (play.type){
